@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="XFFurniture.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Application.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="FontMontserratRegular" />
+            <Setter Property="TextColor" Value="#000000" />
+        </Style>
+        <Color x:Key="colorBlack">#000000</Color>
+        <Color x:Key="colorBlack27">#272829</Color>
+        <Color x:Key="colorBlue232">#232A3A</Color>
+        <Color x:Key="colorWhite">#FFFFFF</Color>
+        <Color x:Key="colorGray95">#959CB5</Color>
+        <Color x:Key="colorGrayC1">#C1C6CB</Color>
+        <Color x:Key="colorYellowF4">#F4C03E</Color>
+        <Color x:Key="colorYellow99F4">#99F4C03E</Color>
+        <Color x:Key="colorGrayF6">#F6F7FA</Color>
+        <Color x:Key="colorGrayEA">#EAEDF6</Color>
+        <Color x:Key="colorRedFF">#FF4D4D</Color>
+        <Color x:Key="colorRedD60">#FF4D60</Color>
+    </Application.Resources>
+</Application>

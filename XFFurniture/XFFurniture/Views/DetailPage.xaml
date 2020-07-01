@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XFFurniture.Views.DetailPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:fonticons="clr-namespace:XFFurniture.Fonts"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:shadows="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+    BackgroundColor="{StaticResource colorBlack27}"
+    NavigationPage.HasNavigationBar="False"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="{OnPlatform Android='90', iOS='140'}" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label
+                Grid.Row="0"
+                Margin="20,0,0,7"
+                FontFamily="FontFontello"
+                FontSize="20"
+                HorizontalOptions="Start"
+                Text="{x:Static fonticons:FontIcons.Close}"
+                TextColor="{StaticResource colorWhite}"
+                VerticalOptions="End">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding PopDetailPageCommand}" NumberOfTapsRequired="1" />
+                </Label.GestureRecognizers>
+            </Label>
+            <Label
+                Grid.Row="0"
+                Margin="20,0,20,5"
+                FontFamily="FontFontello"
+                FontSize="24"
+                HorizontalOptions="End"
+                Text="{x:Static fonticons:FontIcons.HeartOutline}"
+                TextColor="{StaticResource colorWhite}"
+                VerticalOptions="End" />
+            <pancake:PancakeView
+                Grid.Row="1"
+                Margin="0,5,0,0"
+                Padding="15"
+                BackgroundColor="{StaticResource colorWhite}"
+                CornerRadius="20,20,0,0"
+                HasShadow="False">
+                <Grid
+                    ColumnDefinitions=".6*, .4*"
+                    RowDefinitions="auto, auto, auto, auto, auto, auto, auto"
+                    RowSpacing="0">
+                    <StackLayout
+                        Grid.Row="0"
+                        Grid.ColumnSpan="2"
+                        Margin="{OnPlatform Android='0,90,0,0',
+                                            iOS='0,110,0,0'}"
+                        Padding="6"
+                        BindableLayout.ItemsSource="{Binding Product.colors}"
+                        HeightRequest="40"
+                        HorizontalOptions="Center"
+                        Orientation="Horizontal"
+                        Spacing="18"
+                        VerticalOptions="Start">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Grid HorizontalOptions="Center">
+                                    <shadows:Shadows
+                                        CornerRadius="32"
+                                        IsVisible="{Binding selected}"
+                                        Shades="{shadows:SingleShade BlurRadius=10,
+                                                                     Offset='0,5',
+                                                                     Opacity=0.2,
+                                                                     Color={StaticResource colorBlack27}}">
+                                        <BoxView
+                                            BackgroundColor="{StaticResource colorWhite}"
+                                            CornerRadius="14"
+                                            HeightRequest="28"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"
+                                            WidthRequest="28" />
+                                    </shadows:Shadows>
+                                    <BoxView
+                                        BackgroundColor="{Binding color}"
+                                        CornerRadius="10"
+                                        HeightRequest="20"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        WidthRequest="20" />
+                                </Grid>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="0,12,0,0"
+                        FontFamily="FontMontserratSemiBold"
+                        FontSize="{OnPlatform Android='14',
+                                              iOS='18'}"
+                        Text="{Binding Product.description}" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="0,12,0,0"
+                        FontFamily="FontMontserratSemiBold"
+                        FontSize="{OnPlatform Android='14',
+                                              iOS='18'}"
+                        HorizontalOptions="End"
+                        Text="{Binding Product.newPrice, StringFormat='$ {0:N0}'}"
+                        TextColor="{StaticResource colorRedFF}" />
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        FontFamily="FontMontserratSemiBold"
+                        FontSize="10"
+                        Text="{Binding Product.createdBy, StringFormat='by {0}'}" />
+                    <StackLayout
+                        Grid.Row="3"
+                        Margin="0,15,0,10"
+                        HorizontalOptions="Start"
+                        Orientation="Horizontal"
+                        Spacing="5">
+                        <Image
+                            Aspect="AspectFit"
+                            HeightRequest="16"
+                            HorizontalOptions="Start"
+                            Source="star"
+                            WidthRequest="16" />
+                        <Label
+                            FontFamily="FontMontserratMedium"
+                            FontSize="{OnPlatform Android='10',
+                                                  iOS='12'}"
+                            Text="{Binding Product.rating, StringFormat='{0:N1}  |'}"
+                            TextColor="{StaticResource colorGray95}"
+                            VerticalTextAlignment="Center" />
+                        <Label
+                            FontFamily="FontMontserratMedium"
+                            FontSize="{OnPlatform Android='10',
+                                                  iOS='12'}"
+                            Text="{Binding Product.review, StringFormat=' {0} Review'}"
+                            TextColor="{StaticResource colorGray95}"
+                            VerticalTextAlignment="Center" />
+                    </StackLayout>
+                    <BoxView
+                        Grid.Row="4"
+                        Grid.ColumnSpan="2"
+                        Margin="0,10,0,10"
+                        BackgroundColor="{StaticResource colorGrayEA}"
+                        HeightRequest="1"
+                        HorizontalOptions="FillAndExpand" />
+                    <Grid
+                        Grid.Row="5"
+                        Grid.ColumnSpan="2"
+                        Margin="0,10,0,20"
+                        ColumnDefinitions="*, *"
+                        ColumnSpacing="30"
+                        RowDefinitions="auto, auto"
+                        RowSpacing="2">
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            FontFamily="FontMontserratSemiBold"
+                            FontSize="{OnPlatform Android='10',
+                                                  iOS='14'}"
+                            HorizontalOptions="End"
+                            Text="OVERVIEW"
+                            TextColor="{StaticResource colorRedFF}" />
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            FontFamily="FontMontserratSemiBold"
+                            FontSize="{OnPlatform Android='10',
+                                                  iOS='14'}"
+                            HorizontalOptions="Start"
+                            Text="DETAILS"
+                            TextColor="{StaticResource colorGray95}" />
+                        <BoxView
+                            Grid.Row="1"
+                            Margin="{OnPlatform Android='0,0,25,0',
+                                                iOS='0,0,34,0'}"
+                            BackgroundColor="{StaticResource colorRedFF}"
+                            CornerRadius="3"
+                            HeightRequest="6"
+                            HorizontalOptions="End"
+                            VerticalOptions="End"
+                            WidthRequest="6" />
+                    </Grid>
+                    <Label
+                        Grid.Row="6"
+                        Grid.ColumnSpan="2"
+                        FontSize="{OnPlatform Android='10',
+                                              iOS='12'}"
+                        Text="{Binding Product.overview}" />
+                </Grid>
+            </pancake:PancakeView>
+        </Grid>
+        <Image
+            Aspect="AspectFit"
+            HeightRequest="{OnPlatform Android='200',
+                                       iOS='320'}"
+            HorizontalOptions="Center"
+            Source="{Binding Product.image}"
+            TranslationY="28"
+            VerticalOptions="Start" />
+        <pancake:PancakeView
+            Padding="0"
+            BackgroundColor="{StaticResource colorRedD60}"
+            CornerRadius="20,20,0,0"
+            HasShadow="False"
+            HeightRequest="{OnPlatform Android='48',
+                                       iOS='60'}"
+            VerticalOptions="End">
+            <Grid ColumnDefinitions=".4*, .6*">
+                <Grid
+                    Padding="20,10"
+                    ColumnDefinitions="auto, auto"
+                    HorizontalOptions="Center">
+                    <Image
+                        Grid.Column="0"
+                        Margin="0,0,0,0"
+                        Aspect="AspectFit"
+                        HeightRequest="22"
+                        HorizontalOptions="End"
+                        Source="cart_white"
+                        WidthRequest="22" />
+                    <StackLayout
+                        Grid.Column="1"
+                        HorizontalOptions="Start"
+                        Spacing="0"
+                        VerticalOptions="Center">
+                        <Label
+                            FontFamily="FontMontserratSemiBold"
+                            FontSize="12"
+                            Text="2 Items"
+                            TextColor="{StaticResource colorWhite}" />
+                        <Label
+                            FontSize="10"
+                            Text="added"
+                            TextColor="{StaticResource colorWhite}" />
+                    </StackLayout>
+                </Grid>
+                <Grid
+                    Grid.Column="1"
+                    Padding="20,10"
+                    BackgroundColor="{StaticResource colorBlue232}">
+                    <Label
+                        FontFamily="FontMontserratSemiBold"
+                        FontSize="12"
+                        HorizontalTextAlignment="Center"
+                        Text="Add to Cart +"
+                        TextColor="{StaticResource colorWhite}"
+                        VerticalTextAlignment="Center" />
+                </Grid>
+            </Grid>
+        </pancake:PancakeView>
+    </Grid>
+</ContentPage>
