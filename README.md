@@ -11,7 +11,7 @@ O que foi usado no desenvolvimento:
 
 ## Screenshots
 ### Android
-![furniture_android](https://user-images.githubusercontent.com/11803107/86255598-a9b1b500-bb8d-11ea-968e-ea09418b77dc.jpg)
+![furniture_android](https://user-images.githubusercontent.com/11803107/86258222-f3e86580-bb90-11ea-9983-8757da103f09.jpg)
 ![furniture_android_detail](https://user-images.githubusercontent.com/11803107/86255618-b46c4a00-bb8d-11ea-9260-f6d09519c5bc.jpg)
 
 ### iOS
