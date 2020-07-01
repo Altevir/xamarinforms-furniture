@@ -1,4 +1,4 @@
-# Xamarin.Forms Furniture
+# Xamarin.Forms E-commerce Furniture
 Conceito de App desenvolvido com XamarinForms. </br>
 O que foi usado no desenvolvimento:
 - Padrão MVVM (sem framework)
