@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using Plugin.SharedTransitions;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 using XFFurniture.Models;
@@ -62,9 +63,11 @@ namespace XFFurniture.ViewModels
             });
         }
 
-        private async Task ExeccuteNavigateToDetailPageCommand(Product param)
+        private async Task ExeccuteNavigateToDetailPageCommand(Product product)
         {
-            await Navigation.PushAsync(new DetailPage(param));
+            var page = (App.Current.MainPage as SharedTransitionNavigationPage).CurrentPage;
+            SharedTransitionNavigationPage.SetTransitionSelectedGroup(page,product.Id);
+            await Navigation.PushAsync(new DetailPage(product));
         }
     }
 }
