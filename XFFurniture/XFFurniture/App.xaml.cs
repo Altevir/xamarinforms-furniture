@@ -1,4 +1,5 @@
 ﻿using System;
+using Plugin.SharedTransitions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,7 +13,7 @@ namespace XFFurniture
 
             Device.SetFlags(new[] { "Shapes_Experimental" });
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new SharedTransitionNavigationPage(new MainPage());
         }
 
         protected override void OnStart()

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace XFFurniture.Models
 {
@@ -7,8 +8,10 @@ namespace XFFurniture.Models
         public Product()
         {
             this.colors = new List<Color>();
+            this.Id = Guid.NewGuid().ToString();
         }
 
+        public string Id { get; set; }
         public string description { get; set; }
         public double rating { get; set; }
         public int review { get; set; }
