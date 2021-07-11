@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     xmlns:shadows="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+    xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
     NavigationPage.HasNavigationBar="False"
     mc:Ignorable="d">
 
@@ -304,6 +305,8 @@
                                     <Image
                                         Grid.Row="0"
                                         Margin="0,25,0,0"
+                                        sharedTransitions:Transition.Group="{Binding Id}"
+                                        sharedTransitions:Transition.Name="furniture"
                                         Aspect="AspectFit"
                                         HeightRequest="120"
                                         Source="{Binding image}" />

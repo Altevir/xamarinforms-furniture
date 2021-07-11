@@ -8,6 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     xmlns:shadows="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+    xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
     BackgroundColor="{StaticResource colorBlack27}"
     NavigationPage.HasNavigationBar="False"
     mc:Ignorable="d">
@@ -197,6 +198,7 @@
             </pancake:PancakeView>
         </Grid>
         <Image
+            sharedTransitions:Transition.Name="furniture"
             Aspect="AspectFit"
             HeightRequest="{OnPlatform Android='200',
                                        iOS='320'}"
