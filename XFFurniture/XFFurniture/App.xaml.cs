@@ -9,9 +9,6 @@ namespace XFFurniture
         public App()
         {
             InitializeComponent();
-
-            Device.SetFlags(new[] { "Shapes_Experimental" });
-
             MainPage = new NavigationPage(new MainPage());
         }
 
